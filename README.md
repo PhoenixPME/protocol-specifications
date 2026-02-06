@@ -27,10 +27,15 @@ A decentralized protocol for peer-to-peer trading of physical precious metals us
 **Phase 0: Foundation** - Building initial specification and community.
 
 ## 🎯 Current Development Tasks
-We're looking for contributors for these initial tasks:
-1. [Design auction state machine diagram](https://github.com/PhoenixPME/protocol-specifications/issues/1) - Perfect for designers & technical writers
-2. [Research Coreum RWA token standards](https://github.com/PhoenixPME/protocol-specifications/issues/3) - Great for blockchain researchers
-3. [Create basic UI wireframes](https://github.com/PhoenixPME/protocol-specifications/issues/2) - Ideal for UI/UX designers
+
+We're actively seeking contributors! Check our **[PROJECTS.md](PROJECTS.md)** file for detailed task descriptions and how to get involved.
+
+**Priority tasks right now:**
+1. **Design auction state machine** - For designers & technical writers
+2. **Create UI wireframes** - For UI/UX designers  
+3. **Research Coreum RWA standards** - For blockchain researchers
+
+*Want to help?* See [PROJECTS.md](PROJECTS.md) for how to claim a task!
 *[Check our Issues page](https://github.com/PhoenixPME/protocol-specifications/issues) for all open tasks.*
 
 ## 👥 Get Involved

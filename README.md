@@ -18,8 +18,8 @@
 
 ## 💬 Community & Discussion
 **All communication is async and written-only:**
-- **[Discussions](https://github.com/PhoenixPME/protocol-specifications/discussions)** - Q&A, ideas, announcements
-- **[Issues](https://github.com/PhoenixPME/protocol-specifications/issues)** - Bug reports & feature requests
+- **[Discussions](https://github.com/PhoenixPME/coreum-pme/discussions)** - Q&A, ideas, announcements
+- **[Issues](https://github.com/PhoenixPME/coreum-pme/issues)** - Bug reports & feature requests
 - **Email**: gjf20842@gmail.com (for serious collaboration inquiries)
 
 ## 🎯 Current Priorities
@@ -35,9 +35,9 @@
 ```
 
 ## 🔗 Links
-- [GitHub Repository](https://github.com/PhoenixPME/protocol-specifications)
-- [State Machine](https://github.com/PhoenixPME/protocol-specifications/blob/main/docs/diagrams/auction_state_machine.md)
-- [Roadmap](https://github.com/PhoenixPME/protocol-specifications/blob/main/docs/ROADMAP_TIMELINE.md)
+- [GitHub Repository](https://github.com/PhoenixPME/coreum-pme)
+- [State Machine](https://github.com/PhoenixPME/coreum-pme/blob/main/docs/diagrams/auction_state_machine.md)
+- [Roadmap](https://github.com/PhoenixPME/coreum-pme/blob/main/docs/ROADMAP_TIMELINE.md)
 
 ## 📄 License
 GPL-3.0 License - See [LICENSE](LICENSE) for details

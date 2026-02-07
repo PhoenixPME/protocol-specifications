@@ -1,55 +1,119 @@
 'use client';
 
-import { useState } from 'react';
-import { connectWallet } from '@/lib/coreum';
+import { useState, useEffect } from 'react';
 
 export default function WalletConnector() {
-  const [address, setAddress] = useState<string>('');
+  const [address, setAddress] = useState('');
   const [loading, setLoading] = useState(false);
+  const [leapAvailable, setLeapAvailable] = useState(false);
 
-  const connect = async () => {
+  useEffect(() => {
+    setLeapAvailable(!!window.leap?.getOfflineSigner);
+  }, []);
+
+  const connectWallet = async () => {
+    if (!leapAvailable) {
+      alert('Leap Wallet Cosmos API not available. Switch to Cosmos mode.');
+      return;
+    }
+
     setLoading(true);
     try {
-      const { address } = await connectWallet();
-      setAddress(address);
-    } catch (error: any) {
-      alert(`Error: ${error.message}`);
+      // Try to get accounts directly
+      const signer = window.leap.getOfflineSigner('coreum-testnet-1');
+      const accounts = await signer.getAccounts();
+      
+      if (accounts.length > 0) {
+        const addr = accounts[0].address;
+        setAddress(addr);
+        localStorage.setItem('phoenix_wallet', addr);
+        alert('Connected! Address: ' + addr.substring(0, 20) + '...');
+      } else {
+        alert('No accounts found in Leap Wallet.');
+      }
+    } catch (error) {
+      console.error('Leap error:', error);
+      alert('Connection failed. Error in console.');
     } finally {
       setLoading(false);
     }
   };
 
-  const disconnect = () => {
+  const disconnectWallet = () => {
     setAddress('');
+    localStorage.removeItem('phoenix_wallet');
   };
+
+  useEffect(() => {
+    const saved = localStorage.getItem('phoenix_wallet');
+    if (saved) setAddress(saved);
+  }, []);
 
   const formatAddress = (addr: string) => {
-    return `${addr.slice(0, 10)}...${addr.slice(-8)}`;
+    if (!addr) return '';
+    return addr.substring(0, 10) + '...' + addr.substring(addr.length - 6);
   };
 
+  if (!leapAvailable) {
+    return (
+      <button
+        onClick={() => window.open('https://leapwallet.io', '_blank')}
+        style={{
+          padding: '10px 20px',
+          background: '#666',
+          color: 'white',
+          border: 'none',
+          borderRadius: '8px',
+          cursor: 'pointer',
+          fontSize: '14px'
+        }}
+      >
+        Install Leap
+      </button>
+    );
+  }
+
   return (
-    <div className="flex items-center space-x-4">
+    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
       {address ? (
         <>
-          <div className="px-4 py-2 bg-green-100 text-green-800 rounded-lg">
+          <div style={{ 
+            padding: '8px 16px', 
+            background: '#2a2a2a', 
+            borderRadius: '8px',
+            fontFamily: 'monospace',
+            fontSize: '14px',
+            color: 'white'
+          }}>
             {formatAddress(address)}
           </div>
           <button
-            onClick={disconnect}
-            className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600"
+            onClick={disconnectWallet}
+            style={{
+              padding: '8px 16px',
+              background: '#ff4444',
+              color: 'white',
+              border: 'none',
+              borderRadius: '8px',
+              cursor: 'pointer'
+            }}
           >
             Disconnect
           </button>
         </>
       ) : (
         <button
-          onClick={connect}
+          onClick={connectWallet}
           disabled={loading}
-          className={`px-6 py-3 rounded-lg font-semibold ${
-            loading
-              ? 'bg-gray-400 cursor-not-allowed'
-              : 'bg-blue-500 hover:bg-blue-600 text-white'
-          }`}
+          style={{
+            padding: '10px 20px',
+            background: '#0070f3',
+            color: 'white',
+            border: 'none',
+            borderRadius: '8px',
+            cursor: 'pointer',
+            fontSize: '14px'
+          }}
         >
           {loading ? 'Connecting...' : 'Connect Wallet'}
         </button>

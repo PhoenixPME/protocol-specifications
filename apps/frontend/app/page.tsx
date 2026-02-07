@@ -1,64 +1,82 @@
 import WalletConnector from '@/components/WalletConnector';
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <main className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white shadow">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex justify-between items-center">
-            <div>
-              <h1 className="text-3xl font-bold text-gray-900">
-                🦅 PhoenixPME
-              </h1>
-              <p className="text-gray-600">
-                Decentralized Precious Metals Trading
-              </p>
-            </div>
-            <WalletConnector />
+    <div style={{ 
+      minHeight: '100vh',
+      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+      color: 'white'
+    }}>
+      <div style={{ 
+        maxWidth: '1200px',
+        margin: '0 auto',
+        padding: '2rem'
+      }}>
+        <header style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          marginBottom: '4rem'
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+            <div style={{ fontSize: '2rem' }}>🦅</div>
+            <h1 style={{ fontSize: '1.8rem', fontWeight: 'bold' }}>PhoenixPME</h1>
           </div>
-        </div>
-      </header>
+          <WalletConnector />
+        </header>
 
-      {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center">
-          <h2 className="text-2xl font-bold mb-4">Welcome to PhoenixPME</h2>
-          <p className="text-gray-600 mb-8">
-            The future of decentralized precious metals trading is here.
+        <main style={{ textAlign: 'center', padding: '4rem 0' }}>
+          <h2 style={{ fontSize: '3rem', fontWeight: 'bold', marginBottom: '1rem' }}>
+            Decentralized Precious Metals Trading
+          </h2>
+          <p style={{ fontSize: '1.2rem', opacity: 0.9, marginBottom: '3rem' }}>
+            Peer-to-peer gold, silver, and platinum trading on Coreum & XRPL
           </p>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Feature Cards */}
-            <div className="bg-white p-6 rounded-xl shadow">
-              <div className="text-3xl mb-4">🛡️</div>
-              <h3 className="font-bold mb-2">Secure Escrow</h3>
-              <p className="text-gray-600">Funds held securely until delivery confirmed</p>
+          <div style={{ 
+            display: 'flex', 
+            justifyContent: 'center',
+            gap: '2rem',
+            marginTop: '4rem'
+          }}>
+            <div style={{
+              background: 'rgba(255, 255, 255, 0.1)',
+              padding: '2rem',
+              borderRadius: '16px',
+              backdropFilter: 'blur(10px)',
+              width: '300px'
+            }}>
+              <div style={{ fontSize: '2rem', marginBottom: '1rem' }}>🛡️</div>
+              <h3 style={{ fontSize: '1.3rem', marginBottom: '0.5rem' }}>Secure Escrow</h3>
+              <p>Funds held securely until delivery confirmed</p>
             </div>
             
-            <div className="bg-white p-6 rounded-xl shadow">
-              <div className="text-3xl mb-4">⚖️</div>
-              <h3 className="font-bold mb-2">Fair Auctions</h3>
-              <p className="text-gray-600">Transparent bidding for precious metals</p>
+            <div style={{
+              background: 'rgba(255, 255, 255, 0.1)',
+              padding: '2rem',
+              borderRadius: '16px',
+              backdropFilter: 'blur(10px)',
+              width: '300px'
+            }}>
+              <div style={{ fontSize: '2rem', marginBottom: '1rem' }}>⚖️</div>
+              <h3 style={{ fontSize: '1.3rem', marginBottom: '0.5rem' }}>Fair Auctions</h3>
+              <p>Transparent bidding for precious metals</p>
             </div>
             
-            <div className="bg-white p-6 rounded-xl shadow">
-              <div className="text-3xl mb-4">🔗</div>
-              <h3 className="font-bold mb-2">Cross-Chain</h3>
-              <p className="text-gray-600">Coreum + XRPL integration</p>
+            <div style={{
+              background: 'rgba(255, 255, 255, 0.1)',
+              padding: '2rem',
+              borderRadius: '16px',
+              backdropFilter: 'blur(10px)',
+              width: '300px'
+            }}>
+              <div style={{ fontSize: '2rem', marginBottom: '1rem' }}>🔗</div>
+              <h3 style={{ fontSize: '1.3rem', marginBottom: '0.5rem' }}>Cross-Chain</h3>
+              <p>Coreum + XRPL integration</p>
             </div>
           </div>
-        </div>
+        </main>
       </div>
-
-      {/* Footer */}
-      <footer className="bg-white border-t">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <p className="text-center text-gray-500">
-            PhoenixPME • Built on Coreum • Windows 11 Ready
-          </p>
-        </div>
-      </footer>
-    </main>
+    </div>
   );
 }

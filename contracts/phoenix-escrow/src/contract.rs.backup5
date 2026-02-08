@@ -23,6 +23,7 @@ pub fn instantiate(
 
 #[entry_point]
 #[entry_point]
+}
 #[entry_point]
 pub fn execute(
     deps: DepsMut,
@@ -169,7 +170,7 @@ pub fn execute_end_auction(
     }
     
     // Check if sender is seller or auction has ended by time
-    let is_seller = info.sender == auction.seller;
+    let is_seller = info.sender.to_string() == auction.seller;
     let is_time_expired = env.block.time.seconds() > auction.end_time;
     
     if !is_seller && !is_time_expired {
@@ -180,7 +181,7 @@ pub fn execute_end_auction(
     
     // Determine auction outcome
     let outcome = match &auction.current_bid {
-        Some(bid) if bid.amount >= auction.reserve_price.unwrap_or_else(Uint128::zero) => {
+        Some(bid) if bid.amount >= auction.reserve_price.unwrap_or_else(|| Uint128::zero()) => {
             auction.status = AuctionStatus::Sold;
             "sold"
         }
@@ -249,7 +250,7 @@ pub fn execute_release_escrow(
         .map_err(|_| StdError::not_found("Auction"))?;
     
     // Validate: Only seller can release escrow
-    if info.sender != auction.seller {
+    if info.sender.to_string() != auction.seller {
         return Err(StdError::generic_err("Only seller can release escrow"));
     }
     
@@ -286,7 +287,7 @@ pub fn execute_cancel_auction(
         .map_err(|_| StdError::not_found("Auction"))?;
     
     // Validate: Only seller can cancel
-    if info.sender != auction.seller {
+    if info.sender.to_string() != auction.seller {
         return Err(StdError::generic_err("Only seller can cancel auction"));
     }
     
@@ -314,7 +315,7 @@ pub fn execute_cancel_auction(
 mod tests {
     use super::*;
     use cosmwasm_std::testing::{mock_dependencies, mock_env, mock_info};
-    use cosmwasm_std::coins;
+    use cosmwasm_std::{coins, from_json};
 
     #[test]
     fn test_create_auction() {

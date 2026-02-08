@@ -1,73 +1,67 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 export default function WalletConnector() {
-  const [connectedAddress, setConnectedAddress] = useState<string | null>(null);
-
-  useEffect(() => {
-    const saved = localStorage.getItem('wallet_connection');
-    if (saved) {
-      try {
-        const parsed = JSON.parse(saved);
-        const { address, timestamp } = parsed || {};
-        
-        // Check if saved within last 24 hours
-        if (address && timestamp && Date.now() - timestamp < 24 * 60 * 60 * 1000) {
-          setConnectedAddress(address);
-        }
-      } catch {
-        // Clear corrupted data
-        localStorage.removeItem('wallet_connection');
-      }
-    }
-  }, []);
+  const [connected, setConnected] = useState(false);
+  const [phase7, setPhase7] = useState(false);
 
   const connectWallet = () => {
-    // Simulate wallet connection
-    const mockAddress = 'core1...' + Math.random().toString(36).substring(7);
-    const connectionData = {
-      address: mockAddress,
-      timestamp: Date.now(),
-    };
-    
-    localStorage.setItem('wallet_connection', JSON.stringify(connectionData));
-    setConnectedAddress(mockAddress);
-    
-    alert(`Connected to wallet: ${mockAddress}`);
+    setConnected(true);
+    alert('Wallet connected (Phase 7)');
   };
 
-  const disconnectWallet = () => {
-    localStorage.removeItem('wallet_connection');
-    setConnectedAddress(null);
+  const activatePhase7 = () => {
+    setPhase7(true);
+    alert('🚀 Phase 7: Blockchain Mode Activated!\n\nNext: Connect Leap wallet to Coreum testnet');
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-sm border p-4">
-      <h3 className="font-medium text-gray-900 mb-2">Wallet Connection</h3>
-      
-      {connectedAddress ? (
-        <div className="space-y-3">
-          <div className="flex items-center justify-between">
-            <span className="text-sm text-green-600">✅ Connected</span>
+    <div className="space-y-4">
+      <div className="bg-white p-4 rounded-xl border">
+        <h3 className="font-bold text-gray-900 mb-3">Phase 7: Blockchain Integration</h3>
+        
+        {connected ? (
+          <div className="space-y-3">
+            <p className="text-green-600">✅ Wallet Connected</p>
+            <p className="text-sm text-gray-600">
+              Ready for Coreum blockchain integration
+            </p>
+            {!phase7 && (
+              <button
+                onClick={activatePhase7}
+                className="w-full px-4 py-2 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-lg"
+              >
+                Activate Phase 7
+              </button>
+            )}
+          </div>
+        ) : (
+          <div>
+            <p className="text-gray-600 mb-3">Connect to start blockchain phase</p>
             <button
-              onClick={disconnectWallet}
-              className="px-3 py-1 text-sm bg-red-50 text-red-600 rounded hover:bg-red-100"
+              onClick={connectWallet}
+              className="w-full px-4 py-2 bg-blue-600 text-white rounded-lg"
             >
-              Disconnect
+              Connect for Phase 7
             </button>
           </div>
-          <div className="text-xs font-mono bg-gray-50 p-2 rounded truncate">
-            {connectedAddress}
-          </div>
+        )}
+      </div>
+
+      {phase7 && (
+        <div className="bg-green-50 p-4 rounded-xl border border-green-200">
+          <h4 className="font-bold text-green-800 mb-2">🚀 Phase 7 Active</h4>
+          <p className="text-sm text-green-700 mb-3">
+            Blockchain mode enabled. Next steps:
+          </p>
+          <ol className="text-sm text-green-600 ml-4 list-decimal space-y-1">
+            <li>Switch Leap wallet to Coreum testnet</li>
+            <li>Get test tokens from faucet</li>
+            <li>Deploy smart contract</li>
+            <li>Create first on-chain auction</li>
+          </ol>
         </div>
-      ) : (
-        <button
-          onClick={connectWallet}
-          className="w-full px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg hover:from-blue-600 hover:to-purple-600"
-        >
-          Connect Wallet
-        </button>
       )}
     </div>
   );

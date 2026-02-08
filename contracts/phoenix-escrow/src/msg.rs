@@ -1,18 +1,21 @@
-use cosmwasm_schema::{cw_serde, QueryResponses};
-use cosmwasm_std::Uint128;
-use crate::state::Auction;  // Only import what's actually used
+﻿use cosmwasm_std::Uint128;
+use schemars::JsonSchema;
+use serde::{Deserialize, Serialize};
 
-#[cw_serde]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 pub struct InstantiateMsg {
-    pub owner: Option<String>,
+    pub admin: String,
 }
 
-#[cw_serde]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[serde(rename_all = "snake_case")]
 pub enum ExecuteMsg {
     CreateAuction {
-        item_description: String,
+        item_id: String,
+        description: String,
         starting_price: Uint128,
-        duration_days: u64,
+        reserve_price: Option<Uint128>,
+        duration_hours: u64,
     },
     PlaceBid {
         auction_id: u64,
@@ -20,22 +23,20 @@ pub enum ExecuteMsg {
     EndAuction {
         auction_id: u64,
     },
-    ReleaseToSeller {
+    ReleaseEscrow {
         auction_id: u64,
     },
-    DisputeAuction {
+    CancelAuction {
         auction_id: u64,
-        reason: String,
     },
 }
 
-#[cw_serde]
-#[derive(QueryResponses)]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[serde(rename_all = "snake_case")]
 pub enum QueryMsg {
-    #[returns(Auction)]
-    GetAuction { id: u64 },
-    #[returns(Vec<Auction>)]
-    ListAuctions { start_after: Option<u64>, limit: Option<u32> },
-    #[returns(u64)]
+    GetAuction {
+        auction_id: u64,
+    },
+    GetActiveAuctions {},
     GetAuctionCount {},
 }

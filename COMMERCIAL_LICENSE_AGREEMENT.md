@@ -1,4 +1,4 @@
-﻿# COMMERCIAL_LICENSE_AGREEMENT.md
+# COMMERCIAL_LICENSE_AGREEMENT.md
 # PhoenixPME Commercial Use License Agreement
 
 ## PARTIES
@@ -17,7 +17,7 @@
 1. **Reporting:** Monthly transaction volume report due 5th of each month
 2. **Payment:** Fees due by 15th of each month
 3. **Currency:** USD, USDC, or CORE tokens
-4. **Wallet:** Payments to: [YOUR_COREUM_WALLET_ADDRESS_HERE]
+4. **Wallet:** Payments to: core1mj58cdfrkc8uyunw2rna3wvkatdjfhd6lwtu0m
 
 ### C. Attribution Requirements
 All commercial implementations must display:
@@ -39,3 +39,4 @@ State of Colorado, United States
 
 ---
 *By using PhoenixPME code commercially, Licensee agrees to these terms.*
+

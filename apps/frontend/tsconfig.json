@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es2020",
+    "target": "es5",
     "lib": [
       "dom",
       "dom.iterable",
@@ -9,7 +9,6 @@
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
-    "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
@@ -23,31 +22,20 @@
         "name": "next"
       }
     ],
-    "baseUrl": ".",
     "paths": {
       "@/*": [
         "./*"
       ]
-    },
-    "downlevelIteration": true
+    }
   },
   "include": [
     "next-env.d.ts",
-    "types/**/*.ts",
-    "components/**/*.ts",
-    "components/**/*.tsx",
-    "app/**/*.ts",
-    "app/**/*.tsx",
-    "lib/**/*.ts",
+    "**/*.ts",
+    "**/*.tsx",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules",
-    "test-scripts",
-    "**/*.test.*",
-    "**/*.spec.*",
-    "**/test-*",
-    "**/*-test"
+    "node_modules"
   ]
 }

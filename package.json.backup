@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@cosmjs/proto-signing": "^0.38.1",
+    "@leapwallet/cosmos-snap-provider": "^0.1.26"
+  }
+}
+  "scripts": {
+    "check-consistency": "./scripts/check-consistency.sh",
+    "verify": "./verify_structure_fixed.sh && ./scripts/check-consistency.sh"
+  }

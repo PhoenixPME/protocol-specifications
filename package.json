@@ -1,6 +1,22 @@
 {
-  "dependencies": {
-    "@cosmjs/proto-signing": "^0.38.1",
-    "@leapwallet/cosmos-snap-provider": "^0.1.26"
-  }
+  "name": "phoenix-pme",
+  "version": "0.1.0",
+  "description": "PhoenixPME - Precious Metals Exchange on Coreum",
+  "main": "index.js",
+  "scripts": {
+    "check-consistency": "./scripts/check-consistency.sh",
+    "verify": "./verify_structure_fixed.sh && ./scripts/check-consistency.sh",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "blockchain",
+    "coreum",
+    "auction",
+    "precious-metals",
+    "defi"
+  ],
+  "author": "Greg <gjf20842@gmail.com>",
+  "license": "GPL-3.0",
+  "dependencies": {},
+  "devDependencies": {}
 }

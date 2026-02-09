@@ -5,8 +5,8 @@ const DEVELOPER_WALLET: &str = "core1mj58cdfrkc8uyunw2rna3wvkatdjfhd6lwtu0m";
 
 // FEE SCHEDULE (implement in contract admin functions)
 // Phase 1: 0% (launch)
-// Phase 2: 0.01% 
-// Phase 3: 0.02%
-// Phase 4: 0.03%
+// Phase 2: 1.1% 
+// Phase 3: 1.1%
+// Phase 4: 1.1%
 
 // Contract owner can update fee percentage via admin function

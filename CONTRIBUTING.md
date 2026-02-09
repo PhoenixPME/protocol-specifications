@@ -12,3 +12,5 @@
 
 ## 💰 Future Compensation
 Significant contributions may be compensated through grants when platform revenue allows.
+
+<!-- Cache bust: $TIMESTAMP -->

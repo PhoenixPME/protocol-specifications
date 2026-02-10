@@ -1,19 +1,34 @@
-# TESTUSD Token Creation - Success!
+# TESTUSD Token - Live on Coreum Testnet ✅
 
-## 🎉 Token Successfully Created on Coreum Testnet
-**Date:** 2026-02-10  
-**Transaction Hash:** 37EC84596A02687D8F77E7D92538F518CCE847D8B4A325732B911FD0B0D35E9A
+## 🎉 Successfully Created!
+**Date:** $(date)
+**Transaction:** 37EC84596A02687D8F77E7D92538F518CCE847D8B4A325732B911FD0B0D35E9A
 
 ## Token Details
 - **Symbol:** TESTUSD
-- **Subunit:** utestusd
+- **Denom:** `utestusd-testcore1tymxlev27p5rhxd36g4j3a82c7uucjjz4xuzc6`
 - **Decimals:** 6
-- **Initial Supply:** 1,000,000,000 (1,000 tokens)
-- **Denom:** utestusd-testcore1tymxlev27p5rhxd36g4j3a82c7uucjjz4xuzc6
-- **Issuer:** testcore1tymxlev27p5rhxd36g4j3a82c7uucjjz4xuzc6
-- **Features:** burning, freezing, minting, ibc
-- **Burn Rate:** 0%
-- **Send Commission:** 0%
+- **Initial Supply:** 1000 tokens
+- **Issuer:** `testcore1tymxlev27p5rhxd36g4j3a82c7uucjjz4xuzc6`
 
-## Creation Command
-cored tx assetft issue TESTUSD utestusd 6 1000000000 "PhoenixPME Test USD Token" --from testcore1tymxlev27p5rhxd36g4j3a82c7uucjjz4xuzc6 --features burning,freezing,minting,ibc --chain-id coreum-testnet-1 --node https://full-node.testnet-1.coreum.dev:26657 --fees 50000utestcore --gas 500000 --yes
+## Current Distribution
+- **Issuer Wallet:** 900 TESTUSD
+- **Test Wallet:** `testcore1u5mnmlezme6nw9d9xtk086p2az9jk96syrnn67` - 100 TESTUSD
+
+## Status: ✅ OPERATIONAL
+Token is live, transferable, and visible in Leap Wallet.
+
+## Wallet Configuration
+For Leap Wallet:
+- **Coin minimal denom:** `utestusd-testcore1tymxlev27p5rhxd36g4j3a82c7uucjjz4xuzc6`
+- **Coin denom:** TESTUSD
+- **Coin decimals:** 6
+
+## Explorer Link
+https://explorer.testnet-1.coreum.dev/coreum/transaction/37EC84596A02687D8F77E7D92538F518CCE847D8B4A325732B911FD0B0D35E9A
+
+## Next Steps for PhoenixPME
+With TESTUSD operational, development focuses on:
+1. Auction smart contract (1.1% fee enforcement)
+2. Backend blockchain integration
+3. Frontend token interaction

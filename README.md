@@ -109,3 +109,17 @@ We've successfully deployed the TESTUSD token as the foundation for our precious
 - **Documentation:** [TESTUSD Token Creation](docs/TESTUSD_TOKEN_CREATION.md)
 - **Transaction:** `37EC84596A02687D8F77E7D92538F518CCE847D8B4A325732B911FD0B0D35E9A`
 - **Token:** TESTUSD (6 decimals, 1000 initial supply)
+
+## 🪙 TESTUSD Token Status
+
+✅ **LIVE ON COREM TESTNET**
+
+The foundation token for PhoenixPME auctions is now operational.
+
+- **Symbol:** TESTUSD
+- **Denom:** `utestusd-testcore1tymxlev27p5rhxd36g4j3a82c7uucjjz4xuzc6`
+- **Decimals:** 6
+- **Created:** $(date)
+- **Transaction:** [37EC84...5E9A](https://explorer.testnet-1.coreum.dev/coreum/transaction/37EC84596A02687D8F77E7D92538F518CCE847D8B4A325732B911FD0B0D35E9A)
+
+See [docs/TESTUSD_TOKEN_CREATION.md](docs/TESTUSD_TOKEN_CREATION.md) for details.
